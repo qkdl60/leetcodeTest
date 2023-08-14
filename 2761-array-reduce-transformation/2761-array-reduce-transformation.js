@@ -10,6 +10,9 @@
   리듀서된 배열은 fn(init, n
   */
 var reduce = function(nums, fn, init) {
-    const result =nums.reduce((arr, cur)=>fn(arr, cur),init)
+    let result =init
+    for(let a of nums){
+      result=fn(result, a)
+    }
     return result
 };
