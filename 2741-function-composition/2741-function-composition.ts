@@ -10,11 +10,9 @@ type F = (x: number) => number;
 function compose(functions: F[]): F {
 	return function(x) {
      if(functions.length===0)return x   
-     while(functions.length){
-       let a =functions.pop()
-       x=a(x)
-     }
-      return x
+     return functions.reduceRight((acc,cur)=>{
+       return cur(acc)      
+       } ,x)
     }
 };
 
